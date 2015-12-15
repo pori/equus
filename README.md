@@ -34,7 +34,7 @@ if (and(eq(true, true), is({}), not(false), lt(1, 2), or(ne(false, false), gte(3
 
 # API
 
-Read more on the [documentation page](https://pori.github.io/equus).
+Read more on the [documentation page](https://pori.github.io/equus/0.1.0/).
 
 # License
 
