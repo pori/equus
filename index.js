@@ -81,7 +81,7 @@ module.exports.lte = lte;
  * @param {*} arguments
  * @return {boolean}
  */
-const and = function() {
+const all = function() {
   'use strict';
 
   let eqs = Object.keys(arguments).map((k) => arguments[k]);
@@ -89,17 +89,17 @@ const and = function() {
   if (not(eqs.length) && not(eqs[0])) return true;
   else if (not(eqs[0])) return false;
 
-  return and.apply(null, eqs.slice(1));
+  return all.apply(null, eqs.slice(1));
 };
 
-module.exports.and = and;
+module.exports.all = all;
 
 /**
  * Evaluates if at least one argument in a list is true.
  * @param {*} arguments
  * @return {boolean}
  */
-const or = function() {
+const any = function() {
   'use strict';
 
   let eqs = Object.keys(arguments).map((k) => arguments[k]);
@@ -107,10 +107,10 @@ const or = function() {
   if (is(eqs[0])) return true;
   else if (not(eqs.length)) return false;
 
-  return and.apply(null, eqs.slice(1));
+  return any.apply(null, eqs.slice(1));
 };
 
-module.exports.or = or;
+module.exports.any = any;
 
 // TODO: mod(a, b)
 

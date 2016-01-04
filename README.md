@@ -4,7 +4,7 @@ Functional, declarative comparison framework.
 
 # Dependencies
 
-Node.js version `4.0` or later.
+Node.js version `4.0` any later.
 
 # Installation
 
@@ -22,13 +22,13 @@ const eq = equus.eq;
 const ne = equus.ne;
 const lt = equus.lt;
 const gte = equus.gte;
-const and = equus.and;
-const or = equus.and;
+const all = equus.all;
+const any = equus.any;
 
 // (true === true && {} && !false && 1 < 2 && (false !== false || 3 >= 3))
 
-if (and(eq(true, true), is({}), not(false), lt(1, 2), or(ne(false, false), gte(3, 3)))) {
-  // Do things for great goods.
+if (all(eq(true, true), is({}), not(false), lt(1, 2), any(ne(false, false), gte(3, 3)))) {
+  // Do things fany great goods.
 }
 ```
 
