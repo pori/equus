@@ -22,7 +22,7 @@ module.exports.is = is;
  * @param {*} b
  * @return {boolean}
  */
-const eq = (a, b) => a === b;
+const eq = (a) => (b) => a === b;
 
 module.exports.eq = eq;
 
@@ -42,7 +42,7 @@ module.exports.ne = ne;
  * @param {*} b
  * @return {boolean}
  */
-const gt = (a, b) => a > b;
+const gt = (a) => (b) => a > b;
 
 module.exports.gt = gt;
 
@@ -52,7 +52,7 @@ module.exports.gt = gt;
  * @param {*} b
  * @return {boolean}
  */
-const gte = (a, b) => a >= b;
+const gte = (a) => (b) => a >= b;
 
 module.exports.gte = gte;
 
@@ -102,7 +102,7 @@ module.exports.all = all;
 const any = function() {
   'use strict';
 
-  let eqs = Object.keys(arguments).map((k) => arguments[k]);
+  let eqs = Object.keys(arguments).map(k => arguments[k]);
 
   if (is(eqs[0])) return true;
   else if (not(eqs.length)) return false;
@@ -115,3 +115,9 @@ module.exports.any = any;
 // TODO: mod(a, b)
 
 // TODO: regex(x, matcher)
+
+export default function () {
+    var test = validator(42);
+
+    test.eq(42).gt(23
+}
