@@ -97,4 +97,3 @@ export function any () {
 
   return any.apply(null, eqs.slice(1))
 }
-

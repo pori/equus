@@ -1,25 +1,61 @@
-export default function () {
+import assert from './assert'
 
-  function valid () {
+export function fromValue (value) {
 
+  let valid = false
+
+  let tests   = []
+  let passes  = []
+  let failures   = []
+
+  function onTest (f) {
+    tests.push(f)
   }
 
-  function onFail () {
-
+  function onPass (f) {
+    passes.push(f)
   }
 
-  function onPass () {
-
+  function onFail (f) {
+    failures.push(f)
   }
 
-  function onValue () {
-
+  function isValid () {
+    return valid
   }
 
-  return {
-    valid,
+  function validate (name) {
+    return function (expected) {
+      let result = assert[name](value, expected)
+
+      tests.forEach(f => f(expected, result))
+
+      if (assert.is(result)) {
+        passes.forEach(f => f(expected))
+      }
+      else {
+        failures.forEach(f => f(expected))
+      }
+
+      return result
+    }
+  }
+
+  let assert_ = {}
+
+  for (name in assert) {
+    assert_[name] = validate(value)
+  }
+
+  let methods = [
+    onTest,
+    onPass,
     onFail,
-    onPass,    
-    onValue
-  }
+    isValid,
+    validate
+  ]
+
+  Object.assign(methods, assert_)
+
+  return methods
 }
