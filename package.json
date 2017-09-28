@@ -1,8 +1,7 @@
 {
   "name": "equus",
   "version": "1.0.0",
-  "description": "Simple validation.",
-  "main": "index.js",
+  "description": "Chainable validation.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pori/equus.git"
